@@ -6,17 +6,23 @@ import 'my_route_config.dart';
 class MyRouterDelegate extends RouterDelegate<MyRouteConfig>
     with ChangeNotifier, PopNavigatorRouterDelegateMixin<MyRouteConfig> {
 
+  final GlobalKey<NavigatorState> _navigatorKey;
+
   MyRouteConfig _currentConfiguration;
 
+  MyRouterDelegate(): _navigatorKey = GlobalKey<NavigatorState>();
+
   @override
-  GlobalKey<NavigatorState> get navigatorKey => throw UnimplementedError();
+  GlobalKey<NavigatorState> get navigatorKey => _navigatorKey;
 
   @override
   MyRouteConfig get currentConfiguration => _currentConfiguration;
 
   @override
   Widget build(BuildContext context) {
-    throw UnimplementedError();
+    return Navigator(
+      key: _navigatorKey,
+    );
   }
 
   @override
