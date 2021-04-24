@@ -26,8 +26,42 @@ class MyRouterDelegate extends RouterDelegate<MyRouteConfig>
 
     return Navigator(
       key: _navigatorKey,
+      pages: _buildPages(),
       onPopPage: onPopPage,
     );
+  }
+
+  List<Page<dynamic>> _buildPages() {
+    final List<Page<dynamic>> pages = [
+      MaterialPage(
+          key: ValueKey('Home'),
+          name: 'Home',
+          child: SimpleScreen(text: 'Home')
+      ),
+    ];
+
+    if (_currentConfiguration == MyRouteConfig.contact())
+      pages.add(MaterialPage(
+          key: ValueKey('Contact'),
+          name: 'Contact',
+          child: SimpleScreen(text: 'Contact')
+      ));
+
+    if (_currentConfiguration == MyRouteConfig.about())
+      pages.add(MaterialPage(
+          key: ValueKey('About'),
+          name: 'About',
+          child: SimpleScreen(text: 'About')
+      ));
+
+    if (_currentConfiguration == MyRouteConfig.unknown())
+      pages.add(MaterialPage(
+          key: ValueKey('Unknown'),
+          name: 'Unknown',
+          child: SimpleScreen(text: 'Unknown')
+      ));
+
+    return pages;
   }
 
   @override
