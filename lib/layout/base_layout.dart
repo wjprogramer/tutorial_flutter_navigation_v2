@@ -24,7 +24,7 @@ class _BaseLayoutState extends State<BaseLayout> {
 
     _routeInformationProvider = PlatformRouteInformationProvider(
         initialRouteInformation: RouteInformation(
-          location: '/about',
+          location: '/',
         )
     );
 
