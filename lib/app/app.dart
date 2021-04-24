@@ -10,7 +10,13 @@ class MyApp extends StatelessWidget {
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: BaseLayout(),
+      onGenerateRoute: (_) {
+        return PageRouteBuilder(
+            transitionDuration: const Duration(milliseconds: 0),
+            reverseTransitionDuration: const Duration(milliseconds: 0),
+            pageBuilder: (__, ___, ____) => BaseLayout()
+        );
+      }
     );
   }
 }
