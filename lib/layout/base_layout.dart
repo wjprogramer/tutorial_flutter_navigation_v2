@@ -24,11 +24,21 @@ class _BaseLayoutState extends State<BaseLayout> {
 
     _routeInformationProvider = PlatformRouteInformationProvider(
         initialRouteInformation: RouteInformation(
-          location: '/',
+          location: _getInitialRoute(),
         )
     );
 
     _routerDelegate = MyRouterDelegate();
+  }
+
+  String _getInitialRoute() {
+    var initialRoute = "/";
+    if (kIsWeb) {
+      final origin = html.window.location.origin;
+      final href = html.window.location.href;
+      initialRoute = href.substring(origin.length);
+    }
+    return initialRoute;
   }
 
   @override
