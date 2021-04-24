@@ -1,11 +1,26 @@
 import 'package:flutter/material.dart';
+import 'package:tutorial_flutter_navigation_v2/navigation/my_router_delegate.dart';
 
 class BaseSideBar extends StatefulWidget {
+  final MyRouterDelegate myRouterDelegate;
+
+  BaseSideBar({
+    @required this.myRouterDelegate
+  });
+
   @override
   _BaseSideBarState createState() => _BaseSideBarState();
 }
 
 class _BaseSideBarState extends State<BaseSideBar> {
+  MyRouterDelegate _myRouterDelegate;
+
+  @override
+  void initState() {
+    super.initState();
+    _myRouterDelegate = widget.myRouterDelegate;
+  }
+
   @override
   Widget build(BuildContext context) {
     return Container(
@@ -18,19 +33,19 @@ class _BaseSideBarState extends State<BaseSideBar> {
           _link(
             text: 'Home',
             onPressed: () {
-
+              _myRouterDelegate.goHome();
             },
           ),
           _link(
             text: 'About',
             onPressed: () {
-
+              _myRouterDelegate.goAbout();
             },
           ),
           _link(
             text: 'Contact',
             onPressed: () {
-
+              _myRouterDelegate.goContact();
             },
           ),
         ],

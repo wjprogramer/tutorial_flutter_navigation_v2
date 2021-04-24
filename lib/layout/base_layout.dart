@@ -42,7 +42,9 @@ class _BaseLayoutState extends State<BaseLayout> {
     return Scaffold(
       body: Row(
         children: [
-          BaseSideBar(),
+          BaseSideBar(
+            myRouterDelegate: _routerDelegate,
+          ),
           Expanded(
             child: Router(
               routerDelegate: _routerDelegate,
