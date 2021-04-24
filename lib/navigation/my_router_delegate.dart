@@ -20,8 +20,13 @@ class MyRouterDelegate extends RouterDelegate<MyRouteConfig>
 
   @override
   Widget build(BuildContext context) {
+    bool onPopPage(Route<dynamic> route, result) {
+      return route.didPop(result);
+    }
+
     return Navigator(
       key: _navigatorKey,
+      onPopPage: onPopPage,
     );
   }
 
