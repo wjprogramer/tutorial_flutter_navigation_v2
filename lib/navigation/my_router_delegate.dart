@@ -10,7 +10,10 @@ class MyRouterDelegate extends RouterDelegate<MyRouteConfig>
 
   MyRouteConfig _currentConfiguration;
 
-  MyRouterDelegate(): _navigatorKey = GlobalKey<NavigatorState>();
+  MyRouterDelegate({
+    MyRouteConfig myRouteConfig,
+  }): _currentConfiguration = myRouteConfig,
+        _navigatorKey = GlobalKey<NavigatorState>();
 
   @override
   GlobalKey<NavigatorState> get navigatorKey => _navigatorKey;
