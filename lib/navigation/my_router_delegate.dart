@@ -70,4 +70,19 @@ class MyRouterDelegate extends RouterDelegate<MyRouteConfig>
     return;
   }
 
+  void goHome() {
+    _currentConfiguration = MyRouteConfig.home();
+    notifyListeners();
+  }
+
+  void goAbout() {
+    _currentConfiguration = MyRouteConfig.about();
+    notifyListeners();
+  }
+
+  void goContact() {
+    _currentConfiguration = MyRouteConfig.contact();
+    notifyListeners();
+  }
+
 }
